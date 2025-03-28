@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
             let query = searchBox.value.trim().toLowerCase();
             if (query) {
                 if (!query.includes(".")) {
-                    // Si no hay punto, asumimos que es una búsqueda o sitio popular
                     let commonSites = ["google", "facebook", "twitter", "instagram", "youtube", "wikipedia"];
                     if (commonSites.includes(query)) {
                         window.location.href = `https://www.${query}.com`;
@@ -18,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function() {
                         window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
                     }
                 } else {
-                    // Si el usuario ya ingresó un dominio con punto, ir directamente
                     window.location.href = `https://${query}`;
                 }
             }
