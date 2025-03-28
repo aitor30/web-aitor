@@ -1,13 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
     document.body.style.opacity = "1";
     
-    let input = document.getElementById("campoTexto");
+    let searchBox = document.getElementById("searchBox");
 
-    input.addEventListener("keydown", function() {
+    searchBox.addEventListener("keydown", function(event) {
         document.body.style.cursor = "none";
+
+        if (event.key === "Enter") {
+            let query = searchBox.value.trim();
+            if (query) {
+                window.location.href = "https://" + query;
+            }
+        }
     });
 
-    input.addEventListener("keyup", function() {
+    searchBox.addEventListener("keyup", function() {
         setTimeout(() => {
             document.body.style.cursor = "default";
         }, 1000);
